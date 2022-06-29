@@ -6,7 +6,7 @@ import { FooterBanner, HeroBanner, Product } from '../components';
 const Home = () => {
   return (
     <>
-      HeroBanner
+      <HeroBanner />
       <div className='products-heading'>
         <h2>Best Selling Products</h2>
         <p>Speacers of many variations</p>
@@ -17,7 +17,7 @@ const Home = () => {
           (product) => product)}
       </div>
 
-      Footer
+      <FooterBanner />
     </>
   )
 }
