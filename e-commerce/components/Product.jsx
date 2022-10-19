@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Product = () => {
+import Link from 'next/link';
+
+import { urlFor } from '../lib/client';
+
+const Product = ({ product }) => {
   return (
     <div>Product</div>
   )
