@@ -1,8 +1,12 @@
 import React from 'react';
 
-const FooterBanner = () => {
+import Link from 'next/link';
+
+import { urlFor } from '../lib/client';
+
+const FooterBanner = ({ footerBanner }) => {
   return (
-    <div>FooterBanner</div>
+    <div className='footer-banner-container'>FooterBanner</div>
   )
 }
 
