@@ -27,10 +27,14 @@ const ProductDetails = ({product, products}) => {
                 </div> */}
             </div>
             <div className='product-details-desc'>
-                <h1>{name}</h1>
+                {/* <h1>{name}</h1> */}
                 <div className='reviews'>
                     <div>
-
+                        <AiFillStar />
+                        <AiFillStar />
+                        <AiFillStar />
+                        <AiFillStar />
+                        <AiFillStar />
                     </div>
                 </div>
             </div>
@@ -57,20 +61,20 @@ export const getStaticPaths = async () => {
 
     return {
         paths,
-        fallback: 'blocking'
+        fallback: 'blocking',
     }
 }
 
 
 
 export const getStaticProps = async ({params: {slug}}) => {
-    const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
+    const query = `*[_type == "product" && slug.current == '${slug}']`;
     const productsQuery = '*[_type == "product"]';
 
     const product = await client.fetch(query);
     const products = await client.fetch(productsQuery);
   
-    //console.log(productsQuery)
+    console.log(product)
     return {
       props: { product, products }
     }
