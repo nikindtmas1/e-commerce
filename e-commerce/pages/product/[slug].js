@@ -6,14 +6,16 @@ import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-
 
 
 const ProductDetails = ({product, products}) => {
-    //const { image, name, details, price } = product;
+    const { image, name, details, price } = product[0];
   return (
     <div>
         <div className='product-detail-container'>
             <div>
                 <div className='image-container'>
-                    <img src=''
-                    //{urlFor(image && image[0])}
+                    <img src=
+                        {urlFor(image && image[0])}
+                        width={200}
+                        height={200}
                      />
                 </div>
                 {/* <div className='small-images-container'>
@@ -27,7 +29,7 @@ const ProductDetails = ({product, products}) => {
                 </div> */}
             </div>
             <div className='product-details-desc'>
-                {/* <h1>{name}</h1> */}
+                <h1>{name}</h1>
                 <div className='reviews'>
                     <div>
                         <AiFillStar />
@@ -74,7 +76,7 @@ export const getStaticProps = async ({params: {slug}}) => {
     const product = await client.fetch(query);
     const products = await client.fetch(productsQuery);
   
-    console.log(product)
+    // console.log(product[0].name)
     return {
       props: { product, products }
     }
