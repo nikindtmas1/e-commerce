@@ -9,7 +9,7 @@ import { Product } from '../../components';
 
 const ProductDetails = ({product, products}) => {
     const { image, name, details, price } = product[0];
-    const [index, setIndex]= useState(0) 
+    const [index, setIndex]= useState(0);
   return (
     <div>
         <div className='product-detail-container'>
@@ -44,7 +44,7 @@ const ProductDetails = ({product, products}) => {
                 </div>
                 <h4>Details: </h4>
                 <p>{details}</p>
-                <p className='price'>$ {price}</p>
+                <p className='price'>${price}</p>
                 <div className='quantity'>
                     <h3>Quantity:</h3>
                     <p className='quantity-desc'>
