@@ -21,7 +21,8 @@ export const StateContext = ({ children }) => {
         const checkProductInCart = cartItems.find((item) => item._id === product._id);
 
         if(checkProductInCart) {
-            setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity)
+            setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
+            setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
         }
     };
 
