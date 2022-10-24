@@ -23,6 +23,13 @@ export const StateContext = ({ children }) => {
         if(checkProductInCart) {
             setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
             setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
+
+            const updatedCartItems = cartItems.map((cartProduct) => {
+                if(cartProduct._id === product._id) return {
+                    ...cartProduct,
+                    quantity: cartProduct.quantity + quantity
+                }
+            });
         }
     };
 
