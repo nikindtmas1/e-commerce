@@ -10,10 +10,13 @@ import toast from 'react-hot-toast';
 
 import {useStateContext} from '../context/StateContext';
 
+import {urlFor} from '../lib/client';
 
 const Cart = () => {
+  const cartRef = useRef();
+  const { totalPrice, totalQuantities, cartItems, setShowCart } = useStateContext();
   return (
-    <div>Cart</div>
+    <div className='cart-wrapper' ref={cartRef}>Cart</div>
   )
 }
 
