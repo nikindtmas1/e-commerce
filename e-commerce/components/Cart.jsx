@@ -39,6 +39,19 @@ const Cart = () => {
               <div className='product' key={item._id}>
                 <img src={urlFor(item[0]?.image[0])} className='cart-product-image' />
                {/* {console.log(item[0].image[0])} */}
+               <div className='item-desc'>
+                  <div className='flex top'>
+                    <h5>{item[0].name}</h5>
+                    <h4>${item[0].price}</h4>
+                  </div>
+                  <div className='flex bottom'>
+                    <div>
+                      <p className='quantity-desc'>
+
+                      </p>
+                    </div>
+                  </div>
+               </div>
               </div>
             ))}
         </div>
