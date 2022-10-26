@@ -34,6 +34,14 @@ const Cart = () => {
               </Link>
           </div>
         )}
+        <div className='product-container'>
+            {cartItems.length >= 1 && cartItems.map((item) => (
+              <div className='product' key={item._id}>
+                <img src={urlFor(item[0]?.image[0])} className='cart-product-image' />
+               {/* {console.log(item[0].image[0])} */}
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   )
