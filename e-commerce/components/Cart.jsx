@@ -64,6 +64,11 @@ const Cart = () => {
               </div>
             ))}
         </div>
+        {cartItems.length >= 1 && (
+          <div className='cart-button'>
+
+          </div>
+        )}
       </div>
     </div>
   )
