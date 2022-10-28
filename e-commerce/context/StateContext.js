@@ -49,9 +49,9 @@ export const StateContext = ({ children }) => {
         index = cartItems.findIndex((product) => product._id === id);
 
         if(value === 'inc'){
-            let newCartItems = [...cartItems, { ...product, quantity: product.quantity + 1 }];
-            setCartItems(newCartItems);
-
+            
+            setCartItems([...cartItems, { ...product, quantity: product.quantity + 1 }]);
+            setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
         }else if(value === 'dec'){
 
         }
