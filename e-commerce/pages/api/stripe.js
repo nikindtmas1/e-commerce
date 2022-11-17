@@ -1,1 +1,1 @@
-import STripe from 'stripe';
+import Stripe from 'stripe';
