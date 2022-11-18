@@ -6,6 +6,14 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
         const params = {
+            submit_type: 'pay',
+            mode: 'payment',
+            payments_method_type: ['card'],
+            billing_address_collection: 'auto',
+            shipping_options: [
+                { shipping_rate: '' },
+                { shipping_rate: '' },
+            ],
             line_items: [
               {
                 // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
