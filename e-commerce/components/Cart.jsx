@@ -29,9 +29,13 @@ const Cart = () => {
       body: JSON.stringify(cartItems),
     });
 
-    if(respons.statusCode === 50){
-      
-    }
+    if(respons.statusCode === 500) return;
+
+    const data = respons.json();
+
+    toast.loading('Redirectiong...');
+
+    stripe.redirectToCheckout({ sessionId: data.id });
   }
   
   return (
