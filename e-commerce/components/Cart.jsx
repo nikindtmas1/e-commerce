@@ -22,8 +22,16 @@ const Cart = () => {
     const stripe = await getStripe();
 
     const respons = await fetch('/api/stripe', {
-      method: 'POST'
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(cartItems),
     });
+
+    if(respons.statusCode === 50){
+      
+    }
   }
   
   return (
