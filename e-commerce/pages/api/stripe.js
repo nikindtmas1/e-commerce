@@ -41,7 +41,8 @@ export default async function handler(req, res) {
           }
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create(params);
-      res.redirect(303, session.url);
+      req.status(200).json(session);
+      // res.redirect(303, session.url);
     } catch (error) {
       res.status(500).json({ statusCode: 500, message: error.messge });
     }
