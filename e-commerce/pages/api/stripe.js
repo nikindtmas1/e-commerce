@@ -4,7 +4,7 @@ const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    //console.log(req.body.cartItems);
+    console.log(req.body.cartItems);
     try {
         const params = {
             submit_type: 'pay',
@@ -16,9 +16,26 @@ export default async function handler(req, res) {
                 { shipping_rate: 'shr_1M5UgVE2FMJg1suonJoG8gOQ' },
             ],
             line_items: req.body.cartItems.map((item) => {
-                const img = item.image[0].asset._ref;            
+                const img = item.image[0].asset._ref;
+                const newImage = img.replace('image-', 'https//cdn.sanity.io/images/rfpmlxtj/production/').replace('-webp', '.webp');
+                
+                return {
+                  price_date: { 
+                    currency: 'usd',
+                    product_data: {
+                      name: item.name,
+                      images: [newImage],
+                    },
+                    unit_amount: item.price * 100, 
+                   },
+                   adjustable_quantity: {
+                    enabled: true,
+                    minmum: 1,
+                   },
+                   quantity: item.quantity
+                }
             }),
-            mode: "payment",
+            // mode: "payment",
             success_url: `${req.headers.origin}/?success=true`,
             cancel_url: `${req.headers.origin}/?canceled=true`,
           }
