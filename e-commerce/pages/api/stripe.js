@@ -44,7 +44,7 @@ export default async function handler(req, res) {
       req.status(200).json(session);
       // res.redirect(303, session.url);
     } catch (error) {
-      res.status(500).json({ statusCode: 500, message: error.messge });
+      res.status(err.statusCode || 500).json( error.messge );
     }
   }
 }
