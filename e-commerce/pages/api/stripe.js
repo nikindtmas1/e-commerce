@@ -15,13 +15,9 @@ export default async function handler(req, res) {
                 { shipping_rate: 'shr_1M5UehE2FMJg1suoFCxFunaf' },
                 { shipping_rate: 'shr_1M5UgVE2FMJg1suonJoG8gOQ' },
             ],
-            line_items: [
-              {
-                // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-                price: "{{PRICE_ID}}",
-                quantity: 1,
-              },
-            ],
+            line_items: req.body.cartItems.map((item) => {
+                const img = item.image[0].asset._ref;            
+            }),
             mode: "payment",
             success_url: `${req.headers.origin}/?success=true`,
             cancel_url: `${req.headers.origin}/?canceled=true`,
